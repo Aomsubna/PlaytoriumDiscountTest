@@ -219,11 +219,12 @@ export default function Home() {
     };
     const result = await calculateTotalSum(discountRequest);
     if (typeof result === "number") {
+      const roundedUp = Math.ceil(result * 100) / 100;
       setSum(
         new Intl.NumberFormat("th-TH", {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
-        }).format(result)
+        }).format(roundedUp)
       );
     } else {
       console.error("ผลลัพธ์ไม่ใช่ตัวเลข:", result);
