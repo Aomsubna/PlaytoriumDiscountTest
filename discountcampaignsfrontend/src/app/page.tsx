@@ -156,13 +156,11 @@ export default function Home() {
       return;
     }
 
-    // 2. ถ้ามีเลือกแคมเปญ Coupon ต้องกรอก discountCoupon
     if (selectedCampaignCoupon && discountCoupon === "") {
       alert("Please fill discount for campaign coupon");
       return;
     }
 
-    // 3. ถ้ามีเลือกแคมเปญ On Top
     if (selectedCampaignOnTop) {
       if (
         selectedCampaignOnTop.campaignName ===
@@ -182,7 +180,6 @@ export default function Home() {
       }
     }
 
-    // 4. ถ้ามีเลือกแคมเปญ Seasonal
     if (selectedCampaignSeasonal) {
       if (
         selectedCampaignSeasonal.campaignName === "Special campaigns" &&
@@ -211,8 +208,6 @@ export default function Home() {
       discountSeasonalValue,
     };
 
-    console.log(campaignSelection);
-    console.log(selectedProducts);
     const discountRequest: DiscountRequest = {
       campaignsSelected: campaignSelection,
       selectedProduct: selectedProducts,
@@ -227,7 +222,6 @@ export default function Home() {
         }).format(roundedUp)
       );
     } else {
-      console.error("ผลลัพธ์ไม่ใช่ตัวเลข:", result);
       setSum("0.00");
     }
   };
